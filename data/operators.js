@@ -392,7 +392,7 @@ const operators = [
       "hits": [
         {
           "damage_type": "physical",
-          "multiplier": 355
+          "multiplier": 0
         },
       ],
       "atk_add": 0,
@@ -461,7 +461,7 @@ const operators = [
       "bullet"
     ],
     "skill": {
-      "name": "S3 拓くべき活路",
+      "name": "S3 飽和射撃",
       "hits": [
         {
           "damage_type": "physical",
@@ -532,7 +532,7 @@ const operators = [
       "hits": [
         {
           "damage_type": "physical",
-          "multiplier": 300
+          "multiplier": 0
         },
       ],
       "atk_add": 0,
@@ -604,13 +604,7 @@ const operators = [
       ],
       "atk_add": 0,
     },
-    "talents": [
-      {
-        "id": "tal1",
-        "name": "素質名",
-        "effects": []
-      }
-    ],
+    "talents": [    ],
     "potential": [
       {
         "id": 4,
@@ -662,7 +656,7 @@ const operators = [
       "sniper",
     ],
     "skill": {
-      "name": "S3 拓くべき活路",
+      "name": "S3 爆撃要請",
       "hitCount": {
         "min": 1,
         "max": 3,
@@ -979,16 +973,16 @@ const operators = [
       "name": "S2 サイクルストレイフ",
       "hitCount": {
         "min": 1,
-        "max": 5,
-        "default": 5
+        "max": 1,
+        "default": 1
       },
       "hits": [
         {
           "damage_type": "physical",
-          "multiplier": 160
+          "multiplier": 0
         },
       ],
-      "atk_add": 260,
+      "atk_add": 0,
     },
     "talents": [
       {
