@@ -376,6 +376,88 @@ const operators = [
       },
     },
   },
+  // 赤刃明霄チェン
+  {
+    name: "赤刃明霄チェン",
+    id: "chen_the_dawnstreak",
+    atk: 770,
+    tags: [
+      "melee",
+      "guard",
+    ],
+    skill: {
+      name: "S3 赤霄・天喟",
+      hits: [
+        {
+          damage_type: "weakness",
+          multiplier: 580
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [
+      {
+        id: "tal1",
+        effects: [
+          {
+            type: "atk_add",
+            value: 13
+          }
+        ]
+      }
+    ],
+    potential: [
+      {
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 28,
+          },
+        ]
+      },
+      {
+        id: 5,
+        note: "素質強化",
+        effects: [
+          {
+            type: "tal_add",
+            target: "tal1",
+            value: 3
+          }
+        ]
+      },
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 30
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 48
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 60
+            },
+          ]
+        }
+      },
+    },
+  },
   // 司霆レイズ
   {
     name: "司霆レイズ 未実装",
@@ -955,107 +1037,6 @@ const operators = [
       },
     },
   },
-  // キリンRヤトウ
-  {
-    name: "キリンRヤトウ",
-    id: "kirin_r_yato",
-    atk: 655,
-    tags: [
-      "melee",
-      "specialist",
-    ],
-    skill: {
-      name: "S3 空中回転乱舞",
-      hitCount: {
-        min: 1,
-        max: 2,
-        default: 1
-      },
-      hits: [
-        {
-          damage_type: "physical",
-          multiplier: 300
-        },
-        {
-          damage_type: "arts",
-          multiplier: 20
-        },
-      ],
-      atk_add: 0,
-    },
-    talents: [
-      {
-        id: "tal1",
-        effects: [
-          {
-            type: "atk_add",
-            value: 13
-          }
-        ]
-      }
-    ],
-    potential: [
-      {
-        id: 3,
-        note: "攻撃力上昇",
-        effects: [
-          {
-            type: "atk_flat",
-            value: 22,
-          },
-        ]
-      },
-      {
-        id: 5,
-        note: "素質強化",
-        effects: [
-          {
-            type: "tal_add",
-            target: "tal1",
-            value: 3
-          }
-        ]
-      },
-    ],
-    modules: {
-      X: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 36
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 43
-            },
-            {
-              type: "tal_add",
-              target: "tal1",
-              value: 4
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 48
-            },
-            {
-              type: "tal_add",
-              target: "tal1",
-              value: 7
-            },
-          ]
-        }
-      },
-    },
-  },
   // レイディアン
   {
     name: "レイディアン",
@@ -1158,6 +1139,136 @@ const operators = [
         }
       },
     },
+  },
+  // キリンRヤトウ
+  {
+    name: "キリンRヤトウ",
+    id: "kirin_r_yato",
+    atk: 655,
+    tags: [
+      "melee",
+      "specialist",
+    ],
+    skill: {
+      name: "S3 空中回転乱舞",
+      hitCount: {
+        min: 1,
+        max: 2,
+        default: 1
+      },
+      hits: [
+        {
+          damage_type: "physical",
+          multiplier: 300
+        },
+        {
+          damage_type: "arts",
+          multiplier: 20
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [
+      {
+        id: "tal1",
+        effects: [
+          {
+            type: "atk_add",
+            value: 13
+          }
+        ]
+      }
+    ],
+    potential: [
+      {
+        id: 3,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 22,
+          },
+        ]
+      },
+      {
+        id: 5,
+        note: "素質強化",
+        effects: [
+          {
+            type: "tal_add",
+            target: "tal1",
+            value: 3
+          }
+        ]
+      },
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 36
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 43
+            },
+            {
+              type: "tal_add",
+              target: "tal1",
+              value: 4
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 48
+            },
+            {
+              type: "tal_add",
+              target: "tal1",
+              value: 7
+            },
+          ]
+        }
+      },
+    },
+  },
+  // ウァン
+  {
+    name: "ウァン 未実装",
+    id: "wang",
+    atk: 0,
+    tags: [
+      "ranged",
+      "specialist",
+      "bullet"
+    ],
+    skill: {
+      name: "S3",
+      hitCount: {
+        min: 1,
+        max: 1,
+        default: 1
+      },
+      hits: [
+        {
+          damage_type: "arts",
+          multiplier: 0
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [],
+    potential: [],
+    modules: {},
   }
 ]
 

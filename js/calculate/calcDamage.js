@@ -110,6 +110,19 @@ function calculateOperatorDamage(
                     totalDamage += calculateArtsDamage(
                         hitDamage,
                         enemy,
+                        debuffs,
+                        hit.ignore_arts_damage_increase
+                    );
+
+                    break;
+
+
+                case "weakness":
+
+                    totalDamage += calculateWeaknessDamage(
+                        hitDamage,
+                        enemy,
+                        ignoreDef,
                         debuffs
                     );
 
@@ -285,7 +298,8 @@ function calculatePhysicalDamage(
 function calculateArtsDamage(
     atk,
     enemy,
-    debuffs
+    debuffs,
+    ignoreArtsDamageIncrease = false
 ) {
 
     const resReduction = clampPercentage(
@@ -301,7 +315,51 @@ function calculateArtsDamage(
     return (
         damage
         * getDamageMultiplier(debuffs.fragile)
-        * getDamageMultiplier(debuffs.artsDamageIncrease)
+        * (
+            ignoreArtsDamageIncrease
+                ? 1
+                : getDamageMultiplier(debuffs.artsDamageIncrease)
+        )
+    );
+}
+
+function calculateWeaknessDamage(
+    atk,
+    enemy,
+    ignoreDef,
+    debuffs
+) {
+    const comparisonDebuffs = {
+        ...debuffs,
+        fragile: 0,
+        artsDamageIncrease: 0
+    };
+
+    const theoreticalPhysicalDamage = calculatePhysicalDamage(
+        atk,
+        enemy,
+        ignoreDef,
+        comparisonDebuffs
+    );
+    const theoreticalArtsDamage = calculateArtsDamage(
+        atk,
+        enemy,
+        comparisonDebuffs
+    );
+
+    if (theoreticalPhysicalDamage > theoreticalArtsDamage) {
+        return calculatePhysicalDamage(
+            atk,
+            enemy,
+            ignoreDef,
+            debuffs
+        );
+    }
+
+    return calculateArtsDamage(
+        atk,
+        enemy,
+        debuffs
     );
 }
 
