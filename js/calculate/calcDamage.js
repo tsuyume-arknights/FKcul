@@ -110,8 +110,7 @@ function calculateOperatorDamage(
                     totalDamage += calculateArtsDamage(
                         hitDamage,
                         enemy,
-                        debuffs,
-                        hit.ignore_arts_damage_increase
+                        debuffs
                     );
 
                     break;
@@ -298,8 +297,7 @@ function calculatePhysicalDamage(
 function calculateArtsDamage(
     atk,
     enemy,
-    debuffs,
-    ignoreArtsDamageIncrease = false
+    debuffs
 ) {
 
     const resReduction = clampPercentage(
@@ -315,11 +313,7 @@ function calculateArtsDamage(
     return (
         damage
         * getDamageMultiplier(debuffs.fragile)
-        * (
-            ignoreArtsDamageIncrease
-                ? 1
-                : getDamageMultiplier(debuffs.artsDamageIncrease)
-        )
+        * getDamageMultiplier(debuffs.artsDamageIncrease)
     );
 }
 

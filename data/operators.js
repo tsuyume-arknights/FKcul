@@ -387,6 +387,11 @@ const operators = [
     ],
     skill: {
       name: "S3 赤霄・天喟",
+      hitCount: {
+        min: 1,
+        max: 2,
+        default: 1
+      },
       hits: [
         {
           damage_type: "weakness",
