@@ -16,7 +16,7 @@ export default [
     {
         id: "melee_buff",
         name: "近距離(Castle)",
-        targetTag: "melee",
+        targetTags: ["melee"],
 
         base: 10,
         potential2: 2,
@@ -28,7 +28,7 @@ export default [
     {
         id: "guard_buff",
         name: "前衛(ペペ)",
-        targetTag: "guard",
+        targetTags: ["guard"],
 
         base: 16,
         potential3: 4,
@@ -36,7 +36,7 @@ export default [
     {
         id: "defender_buff",
         name: "重装(ホルン)",
-        targetTag: "defender",
+        targetTags: ["defender"],
 
         base: 20,
         potential3: 3,
@@ -50,7 +50,7 @@ export default [
     {
         id: "sniper_buff",
         name: "狙撃(シュバルツ)",
-        targetTag: "sniper",
+        targetTags: ["sniper"],
 
         base: 8,
         potential6: 2,
@@ -63,7 +63,7 @@ export default [
     {
         id: "caster_buff",
         name: "術師(エイヤフィヤトラ)",
-        targetTag: "caster",
+        targetTags: ["caster"],
 
         base: 14,
         potential6: 2,
@@ -76,7 +76,7 @@ export default [
     {
         id: "bullet_buff",
         name: "弾丸系(新約エクシア)",
-        targetTag: "bullet",
+        targetTags: ["bullet"],
 
         base: 13,
         potential3: 4,

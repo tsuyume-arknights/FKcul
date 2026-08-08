@@ -19,13 +19,32 @@ function createAttackDetailsHTML(details, inspirationValue) {
     `;
 }
 
+function createDamageSourceDetailsHTML(details) {
+    if (!details) return "";
+
+    return `
+        <div class="calculation-details">
+            <div>${details.name}基礎攻撃力：${formatNumber(details.baseAtk)}</div>
+            <div>S2割合加算：${formatNumber(details.atkAdd)}%</div>
+            <div>鼓舞率：${formatNumber(details.inspirationRate)}%</div>
+            <div>鼓舞値：${formatNumber(details.inspirationAtk)}</div>
+            <div>${details.name}最終攻撃力：${formatNumber(details.finalAtk)}</div>
+        </div>
+    `;
+}
+
 function renderOperatorDetails(operatorResults) {
     document.querySelectorAll(".operator-card").forEach(card => {
         const id = card.querySelector(".operator-select").value;
         const result = operatorResults.find(item => item.id === id);
         card.querySelector(".operator-calculation-details").innerHTML =
             result
-                ? createAttackDetailsHTML(result.attackDetails)
+                ? (
+                    createAttackDetailsHTML(result.attackDetails)
+                    + createDamageSourceDetailsHTML(
+                        result.damageSourceDetails
+                    )
+                )
                 : "";
     });
 }

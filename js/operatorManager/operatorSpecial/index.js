@@ -20,11 +20,16 @@ import {
     getFirewatchOptions,
     updateFirewatchOptions
 } from "./firewatch.js";
+import {
+    calculateRaidianDamageSourceDetails,
+    calculateRaidianEffects
+} from "./raidian.js";
 
 const specialCalculators = {
     blaze: calculateBlazeEffects,
     firewatch: calculateFirewatchEffects,
     lemuen: calculateLemuenEffects,
+    raidian: calculateRaidianEffects,
     ulpianus: calculateUlpianusEffects
 };
 
@@ -70,8 +75,19 @@ export function calculateOperatorHitMultiplier(
         : hit.multiplier;
 }
 
-export function getOperatorSpecialConditions(operator) {
-    return [];
+const damageSourceCalculators = {
+    raidian: calculateRaidianDamageSourceDetails
+};
+
+export function calculateOperatorDamageSourceDetails(
+    operator,
+    context
+) {
+    const calculator = damageSourceCalculators[operator.id];
+
+    return calculator
+        ? calculator(context)
+        : null;
 }
 
 const specialOptionRenderers = {

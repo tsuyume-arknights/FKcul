@@ -46,7 +46,6 @@ export function calculateInspirationAtkDetails(
         selectedInspiration.potential,
         selectedInspiration.module,
         selectedInspiration.moduleLevel,
-        [],
         selectedOperators,
         selectedGlobalBuffs,
         {},

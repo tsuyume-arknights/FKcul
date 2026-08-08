@@ -28,7 +28,7 @@ export function getFirewatchOptions(card) {
     return {
         talentTarget: card.querySelector(
             ".firewatch-talent-target"
-        )?.checked ?? false
+        )?.checked ?? true
     };
 }
 

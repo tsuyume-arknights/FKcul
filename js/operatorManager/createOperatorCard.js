@@ -2,8 +2,7 @@ import {
     updateOperator,
     updatePotential,
     updateModule,
-    updateModuleLevel,
-    updateConditions
+    updateModuleLevel
 } from "./updateOperatorCard.js";
 import { syncHornDefenderBuff } from "../globalBuff/updateGlobalBuff.js";
 import {
@@ -50,12 +49,6 @@ export function createOperatorCard(operatorData) {
         <div class="operator-card-content">
         <select class="potential" hidden></select>
 
-
-        <div class="hit-count-area">
-            <label>攻撃回数</label>
-            <select class="hit-count"></select>
-        </div>
-
         <div class="module-area">
 
         <label>モジュール</label>
@@ -71,13 +64,20 @@ export function createOperatorCard(operatorData) {
 
         </div>
 
-        <div class="talents"></div>
+        <div class="hit-count-area">
+            <label>攻撃回数</label>
+            <select class="hit-count"></select>
+        </div>
 
-        <div class="special-options"></div>
+        <fieldset class="operator-condition-area" hidden>
+            <legend>発動条件</legend>
+            <div class="special-options"></div>
+        </fieldset>
 
-        <div class="conditions"></div>
-
-        <div class="single-buff-area"></div>
+        <fieldset class="operator-buff-area" hidden>
+            <legend>バフ</legend>
+            <div class="single-buff-area"></div>
+        </fieldset>
 
         <div class="operator-calculation-details"></div>
         </div>
@@ -86,9 +86,12 @@ export function createOperatorCard(operatorData) {
 
     const operatorSelect = card.querySelector(".operator-select");
 
-    const conditionArea = card.querySelector(".conditions");
     const specialOptionsArea = card.querySelector(".special-options");
     const singleBuffArea = card.querySelector(".single-buff-area");
+    const conditionFieldset = card.querySelector(
+        ".operator-condition-area"
+    );
+    const buffFieldset = card.querySelector(".operator-buff-area");
 
     const skillName = card.querySelector(".skill-name");
 
@@ -122,7 +125,8 @@ export function createOperatorCard(operatorData) {
         moduleLevelSelect,
         specialOptionsArea,
         singleBuffArea,
-        conditionArea
+        conditionFieldset,
+        buffFieldset
     );
 
     return card;
@@ -153,7 +157,8 @@ function bindCardEvents(
     moduleLevelSelect,
     specialOptionsArea,
     singleBuffArea,
-    conditionArea
+    conditionFieldset,
+    buffFieldset
 ) {
 
     function getCurrentOperator() {
@@ -194,16 +199,6 @@ function bindCardEvents(
         hitCountArea.style.display = "";
     }
 
-    function refreshConditions() {
-
-        updateConditions(
-            getCurrentOperator(),
-            moduleSelect.value,
-            Number(moduleLevelSelect.value || 0),
-            conditionArea
-        );
-    }
-
     function refreshSpecialOptions() {
         updateOperatorSpecialOptions(
             getCurrentOperator(),
@@ -214,10 +209,18 @@ function bindCardEvents(
                 moduleLevel: Number(moduleLevelSelect.value || 0)
             }
         );
+
+        conditionFieldset.hidden =
+            specialOptionsArea.innerHTML.trim() === "";
     }
 
     function refreshSingleBuffs() {
         const operator = getCurrentOperator();
+        singleBuffArea.innerHTML = "";
+        buffFieldset.hidden = true;
+
+        if (!operator || operator.id === "raidian") return;
+
         const inspirationBuffOptions = inspirationBuffs.map(source => ({
             id: source.buffId,
             name: `${source.name} ${source.skill.name}（鼓舞）`
@@ -229,16 +232,12 @@ function bindCardEvents(
             ...inspirationBuffOptions
         ];
 
-        singleBuffArea.innerHTML = "";
-
-        if (!operator) return;
-
         singleBuffArea.innerHTML = `
-            <div>バフ</div>
             ${availableBuffs.map(createSingleBuffItem).join("")}
         `;
 
         bindSingleBuffItems(singleBuffArea);
+        buffFieldset.hidden = false;
 
     }
 
@@ -287,7 +286,6 @@ function bindCardEvents(
             moduleLevelSelect
         );
 
-        refreshConditions();
         refreshSpecialOptions();
         refreshSingleBuffs();
 
@@ -314,7 +312,6 @@ function bindCardEvents(
             moduleLevelSelect
         );
 
-        refreshConditions();
         refreshSpecialOptions();
 
         syncHornBuff();
@@ -322,7 +319,6 @@ function bindCardEvents(
 
     moduleLevelSelect.addEventListener("change", () => {
 
-        refreshConditions();
         refreshSpecialOptions();
 
         syncHornBuff();

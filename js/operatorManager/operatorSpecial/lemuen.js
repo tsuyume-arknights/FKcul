@@ -36,10 +36,10 @@ export function getLemuenOptions(card) {
     return {
         deployed20s: card.querySelector(
             ".lemuen-deployed-20s"
-        )?.checked ?? false,
+        )?.checked ?? true,
         blastCenter: card.querySelector(
             ".lemuen-blast-center"
-        )?.checked ?? false
+        )?.checked ?? true
     };
 }
 

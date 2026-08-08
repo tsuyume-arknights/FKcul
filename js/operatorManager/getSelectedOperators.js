@@ -40,12 +40,6 @@ export function getSelectedOperators() {
                     card.querySelector(".hit-count")?.value || 1
                 ),
 
-                conditions: [
-                    ...card.querySelectorAll(".condition:checked")
-                ].map(
-                    checkbox => checkbox.value
-                ),
-
                 specialOptions:
                     getOperatorSpecialOptions(operator, card),
 

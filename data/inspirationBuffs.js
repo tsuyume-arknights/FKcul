@@ -3,14 +3,14 @@ const inspirationBuffs = [
         name: "濁心スカジ",
         id: "skadi_the_corrupting_heart",
         buffId: "skadi_buff",
-        "atk": 418,
-        "tags": [
+        atk: 418,
+        tags: [
             "ranged",
             "supporter",
         ],
         skill: {
             name: "S3 「満ち潮、枯れ潮」",
-            "multiplier": 110
+            multiplier: 110
         },
         talents: [
             {
@@ -35,8 +35,8 @@ const inspirationBuffs = [
                 note: "攻撃力上昇",
                 effects: [
                     {
-                        "type": "atk_flat",
-                        "value": 27
+                        type: "atk_flat",
+                        value: 27
                     }
                 ]
             },
@@ -57,24 +57,24 @@ const inspirationBuffs = [
                 1: {
                     effects: [
                         {
-                            "type": "atk_flat",
-                            "value": 26
+                            type: "atk_flat",
+                            value: 26
                         }
                     ]
                 },
                 2: {
                     effects: [
                         {
-                            "type": "atk_flat",
-                            "value": 32
+                            type: "atk_flat",
+                            value: 32
                         }
                     ]
                 },
                 3: {
                     effects: [
                         {
-                            "type": "atk_flat",
-                            "value": 35
+                            type: "atk_flat",
+                            value: 35
                         }
                     ]
                 }
@@ -85,14 +85,14 @@ const inspirationBuffs = [
         name: "ハイディ",
         id: "heidi",
         buffId: "heidi_buff",
-        "atk": 360,
-        "tags": [
+        atk: 360,
+        tags: [
             "ranged",
             "supporter",
         ],
         skill: {
             name: "S1 架空の物語・怒れるもの",
-            "multiplier": 110
+            multiplier: 110
         },
         talents: [],
         potential: [
@@ -112,24 +112,24 @@ const inspirationBuffs = [
                 1: {
                     effects: [
                         {
-                            "type": "atk_flat",
-                            "value": 13
+                            type: "atk_flat",
+                            value: 13
                         }
                     ]
                 },
                 2: {
                     effects: [
                         {
-                            "type": "atk_flat",
-                            "value": 17
+                            type: "atk_flat",
+                            value: 17
                         }
                     ]
                 },
                 3: {
                     effects: [
                         {
-                            "type": "atk_flat",
-                            "value": 21
+                            type: "atk_flat",
+                            value: 21
                         }
                     ]
                 }

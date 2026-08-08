@@ -1,24 +1,23 @@
 /*
   example 
   {
-    "name": "オペレーター",
-    "id": "operator",
-    "atk": 1000,
-    "tags": [],
-    "skill": {
-      "name": "S3 スキル3",
-      "hits": [
+    name: "オペレーター",
+    id: "operator",
+    atk: 1000,
+    tags: [],
+    skill: {
+      name: "S3 スキル3",
+      hits: [
         {
-          "damage_type": "physical",
-          "count": 1,
-          "multiplier": 100
+          damage_type: "physical",
+          multiplier: 100
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [],
-    "potential": [],
-    "modules": {},
+    talents: [],
+    potential: [],
+    modules: {},
   }
  
 tags
@@ -39,95 +38,94 @@ const operators = [
 
   // ブレイズ
   {
-    "name": "ブレイズ",
-    "id": "blaze",
-    "atk": 825,
-    "tags": [
+    name: "ブレイズ",
+    id: "blaze",
+    atk: 825,
+    tags: [
       "melee",
       "guard",
     ],
-    "skill": {
-      "name": "S3 ボイリングバースト",
-      "hits": [
+    skill: {
+      name: "S3 ボイリングバースト",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 400
+          damage_type: "physical",
+          multiplier: 400
         },
       ]
     },
-    "talents": [
+    talents: [
       {
-        "id": "tal1",
-        "name": "スパルタ訓練の成果",
-        "effects": [
+        id: "tal1",
+        effects: [
           {
-            "type": "atk_add",
-            "value": 0,
+            type: "atk_add",
+            value: 0,
           },
         ]
       }
     ],
-    "potential": [
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 28,
+            type: "atk_flat",
+            value: 28,
           },
         ]
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 50
+              type: "atk_flat",
+              value: 50
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 70
+              type: "atk_flat",
+              value: 70
             }
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 86
+              type: "atk_flat",
+              value: 86
             }
           ]
         }
       },
-      "Y": {
+      Y: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 40
+              type: "atk_flat",
+              value: 40
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 50
+              type: "atk_flat",
+              value: 50
             }
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 66
+              type: "atk_flat",
+              value: 66
             }
           ]
         }
@@ -136,101 +134,101 @@ const operators = [
   },
   // ホルン
   {
-    "name": "ホルン",
-    "id": "horn",
-    "atk": 1006,
-    "tags": [
+    name: "ホルン",
+    id: "horn",
+    atk: 1006,
+    tags: [
       "melee",
       "defender",
       "bullet"
     ],
-    "skill": {
-      "name": "S2 テンペストオーダー",
-      "hitCount": {
-        "min": 1,
-        "max": 5,
-        "default": 5
+    skill: {
+      name: "S2 テンペストオーダー",
+      hitCount: {
+        min: 1,
+        max: 5,
+        default: 5
       },
-      "hits": [
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 240
+          damage_type: "physical",
+          multiplier: 240
         },
         {
-          "damage_type": "arts",
-          "multiplier": 60
+          damage_type: "arts",
+          multiplier: 60
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [],
-    "potential": [
+    talents: [],
+    potential: [
       {
-        "id": 3,
-        "note": "素質強化",
-        "effects": []
+        id: 3,
+        note: "素質強化",
+        effects: []
       },
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 30,
+            type: "atk_flat",
+            value: 30,
           },
         ]
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 65
+              type: "atk_flat",
+              value: 65
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 85
+              type: "atk_flat",
+              value: 85
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 100
+              type: "atk_flat",
+              value: 100
             },
           ]
         }
 
       },
-      "Y": {
+      Y: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 92
+              type: "atk_flat",
+              value: 92
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 108
+              type: "atk_flat",
+              value: 108
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 120
+              type: "atk_flat",
+              value: 120
             },
           ]
         }
@@ -239,70 +237,70 @@ const operators = [
   },
   // ウルピアヌス
   {
-    "name": "ウルピアヌス",
-    "id": "ulpianus",
-    "atk": 1649,
-    "tags": [
+    name: "ウルピアヌス",
+    id: "ulpianus",
+    atk: 1649,
+    tags: [
       "melee",
       "guard",
     ],
-    "skill": {
-      "name": "S3 拓くべき活路",
-      "hits": [
+    skill: {
+      name: "S3 拓くべき活路",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 160
+          damage_type: "physical",
+          multiplier: 160
         },
       ],
-      "atk_add": 260,
+      atk_add: 260,
     },
-    "talents": [
+    talents: [
       {
-        "id": "tal1",
-        "name": "素質名",
-        "effects": []
+        id: "tal1",
+        name: "素質名",
+        effects: []
       }
     ],
-    "potential": [
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 45,
+            type: "atk_flat",
+            value: 45,
           },
         ]
       },
       {
-        "id": 5,
-        "note": "素質強化",
-        "effects": []
+        id: 5,
+        note: "素質強化",
+        effects: []
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 84
+              type: "atk_flat",
+              value: 84
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 107
+              type: "atk_flat",
+              value: 107
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 120
+              type: "atk_flat",
+              value: 120
             },
           ]
         }
@@ -311,67 +309,67 @@ const operators = [
   },
   // チューバイ
   {
-    "name": "チューバイ",
-    "id": "qiubai",
-    "atk": 768,
-    "tags": [
+    name: "チューバイ",
+    id: "qiubai",
+    atk: 768,
+    tags: [
       "melee",
       "guard",
     ],
-    "skill": {
-      "name": "S2 承影",
-      "hits": [
+    skill: {
+      name: "S2 承影",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 300
+          damage_type: "physical",
+          multiplier: 300
         },
         {
-          "damage_type": "arts",
-          "multiplier": 10,
-          "module": {
-            "name": "X",
-            "minLevel": 1
+          damage_type: "arts",
+          multiplier: 10,
+          module: {
+            name: "X",
+            minLevel: 1
           }
         },
       ],
-      "atk_add": 140,
+      atk_add: 140,
     },
-    "talents": [],
-    "potential": [
+    talents: [],
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 26,
+            type: "atk_flat",
+            value: 26,
           },
         ]
       },
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 35
+              type: "atk_flat",
+              value: 35
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 48
+              type: "atk_flat",
+              value: 48
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 55
+              type: "atk_flat",
+              value: 55
             },
           ]
         }
@@ -380,70 +378,70 @@ const operators = [
   },
   // 司霆レイズ
   {
-    "name": "司霆レイズ 未実装",
-    "id": "leizi_the_thunderbringer",
-    "atk": 390,
-    "tags": [
+    name: "司霆レイズ 未実装",
+    id: "leizi_the_thunderbringer",
+    atk: 390,
+    tags: [
       "melee",
       "guard",
     ],
-    "skill": {
-      "name": "S1 浩気不滅",
-      "hits": [
+    skill: {
+      name: "S1 浩気不滅",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 0
+          damage_type: "physical",
+          multiplier: 355
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [
+    talents: [
       {
-        "id": "tal1",
-        "name": "素質名",
-        "effects": []
+        id: "tal1",
+        name: "素質名",
+        effects: []
       }
     ],
-    "potential": [
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 29,
+            type: "atk_flat",
+            value: 29,
           },
         ]
       },
       {
-        "id": 5,
-        "note": "素質強化",
-        "effects": []
+        id: 5,
+        note: "素質強化",
+        effects: []
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 26
+              type: "atk_flat",
+              value: 26
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 35
+              type: "atk_flat",
+              value: 35
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 42
+              type: "atk_flat",
+              value: 42
             },
           ]
         }
@@ -452,65 +450,65 @@ const operators = [
   },
   // 滌火ジェシカ
   {
-    "name": "滌火ジェシカ",
-    "id": "jessica_the_liberated",
-    "atk": 582,
-    "tags": [
+    name: "滌火ジェシカ",
+    id: "jessica_the_liberated",
+    atk: 582,
+    tags: [
       "melee",
       "defender",
       "bullet"
     ],
-    "skill": {
-      "name": "S3 飽和射撃",
-      "hits": [
+    skill: {
+      name: "S3 飽和射撃",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 250
+          damage_type: "physical",
+          multiplier: 250
         },
       ],
-      "atk_add": 310,
+      atk_add: 310,
     },
-    "talents": [],
-    "potential": [
+    talents: [],
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 28,
+            type: "atk_flat",
+            value: 28,
           },
         ]
       },
       {
-        "id": 5,
-        "note": "素質強化",
-        "effects": []
+        id: 5,
+        note: "素質強化",
+        effects: []
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 50
+              type: "atk_flat",
+              value: 50
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 57
+              type: "atk_flat",
+              value: 57
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 65
+              type: "atk_flat",
+              value: 65
             },
           ]
         }
@@ -519,65 +517,65 @@ const operators = [
   },
   // ウィシャデル
   {
-    "name": "ウィシャデル 未実装",
-    "id": "wisadel",
-    "atk": 777,
-    "tags": [
+    name: "ウィシャデル 未実装",
+    id: "wisadel",
+    atk: 777,
+    tags: [
       "ranged",
       "sniper",
       "bullet"
     ],
-    "skill": {
-      "name": "S3 デイブレイクバースト",
-      "hits": [
+    skill: {
+      name: "S3 デイブレイクバースト",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 0
+          damage_type: "physical",
+          multiplier: 300
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [],
-    "potential": [
+    talents: [],
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 32,
+            type: "atk_flat",
+            value: 32,
           },
         ]
       },
       {
-        "id": 5,
-        "note": "素質強化",
-        "effects": []
+        id: 5,
+        note: "素質強化",
+        effects: []
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 45
+              type: "atk_flat",
+              value: 45
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 55
+              type: "atk_flat",
+              value: 55
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 65
+              type: "atk_flat",
+              value: 65
             },
           ]
         }
@@ -586,60 +584,65 @@ const operators = [
   },
   // レミュアン
   {
-    "name": "レミュアン",
-    "id": "lemuen",
-    "atk": 1301,
-    "tags": [
+    name: "レミュアン",
+    id: "lemuen",
+    atk: 1301,
+    tags: [
       "ranged",
       "sniper",
       "bullet"
     ],
-    "skill": {
-      "name": "S3 礼砲・強制追悼",
-      "hits": [
+    skill: {
+      name: "S3 礼砲・強制追悼",
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 300
+          damage_type: "physical",
+          multiplier: 300
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [    ],
-    "potential": [
+    talents: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: "tal1",
+        effects: []
+      }
+    ],
+    potential: [
+      {
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 46,
+            type: "atk_flat",
+            value: 46,
           },
         ]
       },
     ],
-    "modules": {
-      "Y": {
+    modules: {
+      Y: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 80
+              type: "atk_flat",
+              value: 80
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 100
+              type: "atk_flat",
+              value: 100
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 120
+              type: "atk_flat",
+              value: 120
             },
           ]
         }
@@ -648,75 +651,74 @@ const operators = [
   },
   // ファイヤーウォッチ
   {
-    "name": "ファイヤーウォッチ",
-    "id": "firewatch",
-    "atk": 1175,
-    "tags": [
+    name: "ファイヤーウォッチ",
+    id: "firewatch",
+    atk: 1175,
+    tags: [
       "ranged",
       "sniper",
     ],
-    "skill": {
-      "name": "S3 爆撃要請",
-      "hitCount": {
-        "min": 1,
-        "max": 3,
-        "default": 1
+    skill: {
+      name: "S2 爆撃要請",
+      hitCount: {
+        min: 1,
+        max: 3,
+        default: 1
       },
-      "hits": [
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 300
+          damage_type: "physical",
+          multiplier: 300
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [
+    talents: [
       {
-        "id": "tal1",
-        "name": "素質名",
-        "effects": []
+        id: "tal1",
+        effects: []
       }
     ],
-    "potential": [
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 35,
+            type: "atk_flat",
+            value: 35,
           },
         ]
       },
       {
-        "id": 5,
-        "note": "素質強化",
-        "effects": []
+        id: 5,
+        note: "素質強化",
+        effects: []
       }
     ],
-    "modules": {
-      "Y": {
+    modules: {
+      Y: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 60
+              type: "atk_flat",
+              value: 60
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 75
+              type: "atk_flat",
+              value: 75
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 87
+              type: "atk_flat",
+              value: 87
             },
           ]
         }
@@ -725,81 +727,80 @@ const operators = [
   },
   // マルシル
   {
-    "name": "マルシル",
-    "id": "marcille",
-    "atk": 1024,
-    "tags": [
+    name: "マルシル",
+    id: "marcille",
+    atk: 1024,
+    tags: [
       "ranged",
       "caster",
     ],
-    "skill": {
-      "name": "S3 爆破魔法",
-      "hits": [
+    skill: {
+      name: "S3 爆破魔法",
+      hits: [
         {
-          "damage_type": "arts",
-          "multiplier": 390
+          damage_type: "arts",
+          multiplier: 390
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [
+    talents: [
       {
-        "id": "tal1",
-        "name": "学校始まって以来の才女",
-        "effects": [
+        id: "tal1",
+        effects: [
           {
-            "type": "atk_add",
-            "value": 20
+            type: "atk_add",
+            value: 20
           }
         ]
       }
     ],
-    "potential": [
+    potential: [
       {
-        "id": 3,
-        "note": "素質強化",
-        "effects": [
+        id: 3,
+        note: "素質強化",
+        effects: [
           {
-            "type": "tal_add",
-            "target": "tal1",
-            "value": 5
+            type: "tal_add",
+            target: "tal1",
+            value: 5
           }
         ]
       },
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 34,
+            type: "atk_flat",
+            value: 34,
           },
         ]
       },
     ],
-    "modules": {
-      "Y": {
+    modules: {
+      Y: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 51
+              type: "atk_flat",
+              value: 51
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 68
+              type: "atk_flat",
+              value: 68
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 82
+              type: "atk_flat",
+              value: 82
             },
           ]
         }
@@ -808,59 +809,59 @@ const operators = [
   },
   // ネクラス
   {
-    "name": "ネクラス",
-    "id": "necrass",
-    "atk": 678,
-    "tags": [
+    name: "ネクラス",
+    id: "necrass",
+    atk: 678,
+    tags: [
       "ranged",
       "caster",
     ],
-    "skill": {
-      "name": "S3 死に授く冠",
-      "hits": [
+    skill: {
+      name: "S3 死に授く冠",
+      hits: [
         {
-          "damage_type": "arts",
-          "multiplier": 800
+          damage_type: "arts",
+          multiplier: 800
         },
       ],
-      "atk_add": 0,
+      atk_add: 0,
     },
-    "talents": [],
-    "potential": [
+    talents: [],
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 27,
+            type: "atk_flat",
+            value: 27,
           },
         ]
       },
     ],
-    "modules": {
-      "X": {
+    modules: {
+      X: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 35
+              type: "atk_flat",
+              value: 35
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 45
+              type: "atk_flat",
+              value: 45
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 55
+              type: "atk_flat",
+              value: 55
             },
           ]
         }
@@ -869,91 +870,186 @@ const operators = [
   },
   // ロゴス
   {
-    "name": "ロゴス",
-    "id": "logos",
-    "atk": 761,
-    "tags": [
+    name: "ロゴス",
+    id: "logos",
+    atk: 761,
+    tags: [
       "ranged",
       "caster",
     ],
-    "skill": {
-      "name": "S1 歿亡",
-      "hits": [
+    skill: {
+      name: "S1 歿亡",
+      hits: [
         {
-          "special": "logos_s1_execute",
-          "multiplier": 150
+          special: "logos_s1_execute",
+          multiplier: 150
         },
       ],
-      "atk_add": 100,
+      atk_add: 100,
     },
-    "talents": [
+    talents: [],
+    potential: [
       {
-        "id": "tal1",
-        "name": "素質名",
-        "effects": []
-      }
-    ],
-    "potential": [
-      {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 27,
+            type: "atk_flat",
+            value: 27,
           },
         ]
       },
     ],
-    "modules": {
-      "Y": {
+    modules: {
+      Y: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 35
+              type: "atk_flat",
+              value: 35
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 50
+              type: "atk_flat",
+              value: 50
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 60
+              type: "atk_flat",
+              value: 60
             },
           ]
         }
       },
-      "D": {
+      D: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 36
+              type: "atk_flat",
+              value: 36
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 54
+              type: "atk_flat",
+              value: 54
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 67
+              type: "atk_flat",
+              value: 67
+            },
+          ]
+        }
+      },
+    },
+  },
+  // キリンRヤトウ
+  {
+    name: "キリンRヤトウ",
+    id: "kirin_r_yato",
+    atk: 655,
+    tags: [
+      "melee",
+      "specialist",
+    ],
+    skill: {
+      name: "S3 空中回転乱舞",
+      hitCount: {
+        min: 1,
+        max: 2,
+        default: 1
+      },
+      hits: [
+        {
+          damage_type: "physical",
+          multiplier: 300
+        },
+        {
+          damage_type: "arts",
+          multiplier: 20
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [
+      {
+        id: "tal1",
+        effects: [
+          {
+            type: "atk_add",
+            value: 13
+          }
+        ]
+      }
+    ],
+    potential: [
+      {
+        id: 3,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 22,
+          },
+        ]
+      },
+      {
+        id: 5,
+        note: "素質強化",
+        effects: [
+          {
+            type: "tal_add",
+            target: "tal1",
+            value: 3
+          }
+        ]
+      },
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 36
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 43
+            },
+            {
+              type: "tal_add",
+              target: "tal1",
+              value: 4
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 48
+            },
+            {
+              type: "tal_add",
+              target: "tal1",
+              value: 7
             },
           ]
         }
@@ -962,75 +1058,101 @@ const operators = [
   },
   // レイディアン
   {
-    "name": "レイディアン 後回し",
-    "id": "raidian",
-    "atk": 1649,
-    "tags": [
-      "melee",
-      "guard",
+    name: "レイディアン",
+    id: "raidian",
+    atk: 486,
+    tags: [
+      "ranged",
+      "supporter",
     ],
-    "skill": {
-      "name": "S2 サイクルストレイフ",
-      "hitCount": {
-        "min": 1,
-        "max": 1,
-        "default": 1
+    skill: {
+      name: "S2 サイクルストレイフ",
+      hitCount: {
+        min: 1,
+        max: 9,
+        default: 3
       },
-      "hits": [
+      hits: [
         {
-          "damage_type": "physical",
-          "multiplier": 0
+          damage_type: "physical",
+          multiplier: 100
         },
       ],
-      "atk_add": 0,
+      atk_add: 80,
     },
-    "talents": [
+    talents: [
       {
-        "id": "tal1",
-        "name": "素質名",
-        "effects": []
+        id: "tal1",
+        name: "素質名",
+        effects: []
       }
     ],
-    "potential": [
+    potential: [
       {
-        "id": 4,
-        "note": "攻撃力上昇",
-        "effects": [
+        id: 3,
+        note: "攻撃力上昇",
+        effects: [
           {
-            "type": "atk_flat",
-            "value": 45,
+            type: "atk_flat",
+            value: 24,
           },
         ]
       },
       {
-        "id": 5,
-        "note": "素質強化",
-        "effects": []
+        id: 5,
+        note: "素質強化",
+        effects: []
       }
     ],
-    "modules": {
-      "X": {
+    modules: {
+      A: {
         "1": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 84
+              type: "atk_flat",
+              value: 27
             }
           ]
         },
         "2": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 107
+              type: "atk_flat",
+              value: 36
             },
           ]
         },
         "3": {
-          "effects": [
+          effects: [
             {
-              "type": "atk_flat",
-              "value": 120
+              type: "atk_flat",
+              value: 43
+            },
+          ]
+        }
+      },
+      B: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 41
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 54
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 65
             },
           ]
         }

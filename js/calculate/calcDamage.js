@@ -1,5 +1,6 @@
 import { calculateAttackDetails } from "./calcAtk.js";
 import {
+    calculateOperatorDamageSourceDetails,
     calculateOperatorHitMultiplier,
     calculateOperatorSpecialIgnoreDef
 } from "../operatorManager/operatorSpecial/index.js";
@@ -31,7 +32,6 @@ function calculateOperatorDamage(
         selected.potential,
         selected.module,
         selected.moduleLevel,
-        selected.conditions,
         selectedOperators,
         selectedGlobalBuffs,
         selected.specialOptions,
@@ -39,13 +39,20 @@ function calculateOperatorDamage(
         inspirationEffects.inspirationAtk,
         inspirationEffects.targetAtkAdd
     );
-    const atk = attackDetails.finalAtk;
+    const damageSourceDetails = calculateOperatorDamageSourceDetails(
+        operator,
+        {
+            potential: selected.potential,
+            attackDetails
+        }
+    );
+    const atk = damageSourceDetails?.finalAtk
+        ?? attackDetails.finalAtk;
 
     const ignoreDef = getIgnoreDef(
         operator,
         selected.module,
         selected.moduleLevel,
-        selected.conditions,
         selected.specialOptions
     );
 
@@ -122,6 +129,7 @@ function calculateOperatorDamage(
     return {
         damage: totalDamage,
         attackDetails,
+        damageSourceDetails,
         ignoreDef
     };
 }
@@ -210,7 +218,6 @@ function getIgnoreDef(
     operator,
     moduleName,
     moduleLevel,
-    conditions,
     specialOptions
 ) {
 
@@ -242,18 +249,6 @@ function getIgnoreDef(
 
         if (effect.type !== "ignore_def") {
             return;
-        }
-
-        if (effect.condition) {
-
-            if (
-                !conditions.includes(
-                    effect.condition.label
-                )
-            ) {
-                return;
-            }
-
         }
 
         ignoreDef += effect.value;

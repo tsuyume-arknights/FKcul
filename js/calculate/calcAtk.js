@@ -16,7 +16,6 @@ export function calculateAttackDetails(
     potential,
     moduleName,
     moduleLevel,
-    conditions,
     selectedOperators,
     selectedGlobalBuffs,
     specialOptions = {},
@@ -32,24 +31,9 @@ export function calculateAttackDetails(
     let atkMul = 1;
 
     // 潜在・モジュール
-    function applyBaseEffects(
-        effects,
-        conditions = []
-    ) {
+    function applyBaseEffects(effects) {
 
         effects.forEach(effect => {
-
-            if (effect.condition) {
-
-                if (
-                    !conditions.includes(
-                        effect.condition.label
-                    )
-                ) {
-                    return;
-                }
-
-            }
 
             switch (effect.type) {
 
@@ -95,20 +79,9 @@ export function calculateAttackDetails(
 
     // 素質・スキル
 
-    function collectEffects(effects, conditions = []) {
+    function collectEffects(effects) {
 
         effects.forEach(effect => {
-
-            if (effect.condition) {
-                if (
-                    !conditions.includes(
-                        effect.condition.label
-                    )
-                ) {
-                    return;
-                }
-
-            }
 
             switch (effect.type) {
                 case "atk_add": {
@@ -147,10 +120,7 @@ export function calculateAttackDetails(
             const level = module[moduleLevel];
 
             if (level) {
-                applyBaseEffects(
-                    level.effects,
-                    conditions
-                );
+                applyBaseEffects(level.effects);
             }
 
         }
@@ -160,10 +130,7 @@ export function calculateAttackDetails(
     // 素質
 
     talents.forEach(talent => {
-        collectEffects(
-            talent.effects,
-            conditions
-        );
+        collectEffects(talent.effects);
     });
 
     // スキル攻撃力加算
@@ -173,7 +140,6 @@ export function calculateAttackDetails(
             potential,
             moduleName,
             moduleLevel,
-            conditions,
             selectedOperators,
             specialOptions
         }
@@ -189,30 +155,39 @@ export function calculateAttackDetails(
 
     atkMul *= specialEffects.atkMul ?? 1;
 
-    atkAdd += calculateGlobalBuffs(
-        operator,
-        selectedGlobalBuffs
-    );
+    const externalBuffsDisabled =
+        specialEffects.disableExternalBuffs ?? false;
 
-    atkAdd += calculateSingleBuffs(
-        selectedSingleBuffs,
-        operator
-    );
+    if (!externalBuffsDisabled) {
+        atkAdd += calculateGlobalBuffs(
+            operator,
+            selectedGlobalBuffs
+        );
 
-    atkAdd += additionalAtkAdd;
+        atkAdd += calculateSingleBuffs(
+            selectedSingleBuffs,
+            operator
+        );
+
+        atkAdd += additionalAtkAdd;
+    }
+
+    const appliedInspirationAtk = externalBuffsDisabled
+        ? 0
+        : inspirationAtk;
 
     const finalAtk = (
         baseAtk
         * (1 + atkAdd / 100)
         * atkMul
-        + inspirationAtk
+        + appliedInspirationAtk
     );
 
     return {
         flatAtk: baseAtk,
         atkAdd,
         atkMul,
-        inspirationAtk,
+        inspirationAtk: appliedInspirationAtk,
         finalAtk
     };
 

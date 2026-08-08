@@ -48,7 +48,7 @@ export default [
         id: "nasti_buff",
         name: "ナスティ S3 止まり木",
         source: "nasti",
-        targetTag: "ranged",
+        targetTags: ["ranged"],
 
         count: {
             label: "アップグレード",
@@ -67,7 +67,7 @@ export default [
         id: "windflit_buff",
         name: "ウインドフリット S2 この身を源とす",
         source: "windflit",
-        targetTag: [
+        targetTags: [
             "caster",
             "supporter"
         ],

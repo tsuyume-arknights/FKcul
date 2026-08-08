@@ -14,8 +14,10 @@ export function calculateGlobalBuffs(
         if (!buff) return;
 
         if (
-            buff.targetTag &&
-            !targetOperator.tags.includes(buff.targetTag)
+            buff.targetTags &&
+            !buff.targetTags.some(
+                tag => targetOperator.tags.includes(tag)
+            )
         ) {
             return;
         }

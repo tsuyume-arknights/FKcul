@@ -1,10 +1,8 @@
 export function canApplySingleBuff(buff, operator) {
-    if (!buff.targetTag) return true;
+    if (!buff.targetTags) return true;
     if (!operator) return false;
 
-    const targetTags = Array.isArray(buff.targetTag)
-        ? buff.targetTag
-        : [buff.targetTag];
-
-    return targetTags.some(tag => operator.tags?.includes(tag));
+    return buff.targetTags.some(
+        tag => operator.tags?.includes(tag)
+    );
 }
