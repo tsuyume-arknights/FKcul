@@ -14,6 +14,18 @@ export default [
         ]
     },
     {
+        id: "virtuosa_buff",
+        name: "ヴィルトゥオーサ S3 「自由のタンゴ」",
+        source: "virtuosa",
+
+        effects: [
+            {
+                type: "atk_add",
+                value: 30
+            }
+        ]
+    },
+    {
         id: "aak_buff",
         name: "ア S3 劇性増強剤・ドリアン",
         source: "aak",
