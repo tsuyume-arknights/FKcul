@@ -42,12 +42,61 @@ export function updateUlpianusOptions(
     `;
 }
 
+export function updateUlpianusHitOptions(
+    area,
+    { previousOptions = {} }
+) {
+    const normalHit = previousOptions.normalHit ?? true;
+    const silverashS3Hit = previousOptions.silverashS3Hit ?? false;
+
+    area.innerHTML = `
+        <label>
+            <input
+                type="checkbox"
+                class="ulpianus-normal-hit"
+                ${normalHit ? "checked" : ""}
+            >
+            通常
+        </label>
+        <label>
+            <input
+                type="checkbox"
+                class="ulpianus-silverash-s3-hit"
+                ${silverashS3Hit ? "checked" : ""}
+            >
+            真銀斬
+        </label>
+    `;
+}
+
 export function getUlpianusOptions(card) {
     return {
         killCount: Number(
             card.querySelector(".ulpianus-kill-count")?.value || 0
-        )
+        ),
+        normalHit: card.querySelector(
+            ".ulpianus-normal-hit"
+        )?.checked ?? true,
+        silverashS3Hit: card.querySelector(
+            ".ulpianus-silverash-s3-hit"
+        )?.checked ?? false
     };
+}
+
+export function isUlpianusHitEnabled(
+    hit,
+    { specialOptions }
+) {
+    switch (hit.id) {
+        case "normal":
+            return specialOptions.normalHit !== false;
+
+        case "silverash_s2":
+            return specialOptions.silverashS3Hit === true;
+
+        default:
+            return true;
+    }
 }
 
 export function calculateUlpianusEffects({

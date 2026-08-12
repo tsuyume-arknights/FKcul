@@ -35,6 +35,8 @@ export function initGlobalBuffList() {
 
         const potentialHTML = potentialLevels.length > 1
             ? `
+                <label>
+                潜在
                 <select class="global-buff-potential">
                     ${potentialLevels.map((level, index) => `
                         <option
@@ -44,10 +46,16 @@ export function initGlobalBuffList() {
                                 : ""
                             }
                         >
-                            潜在${level}
+                            潜在${level}：${level === 1
+                                ? "強化なし"
+                                : buff[`potential${level}`] === 0
+                                    ? "攻撃力上昇"
+                                    : "素質強化"
+                            }
                         </option>
                     `).join("")}
                 </select>
+                </label>
             `
             : "";
 
@@ -66,10 +74,12 @@ export function initGlobalBuffList() {
                 ];
 
             moduleHTML = `
+                <label>
+                モジュール
                 <select class="global-buff-module">
 
                     <option value="none">
-                        モジュールなし
+                        なし
                     </option>
 
                     ${buff.modules.map(module => `
@@ -85,8 +95,10 @@ export function initGlobalBuffList() {
                     `).join("")}
 
                 </select>
+                </label>
 
-
+                <label class="global-buff-module-level-area">
+                レベル
                 <select class="global-buff-module-level">
 
                     <option value="1">
@@ -105,6 +117,7 @@ export function initGlobalBuffList() {
                     </option>
 
                 </select>
+                </label>
             `;
         }
 
@@ -121,9 +134,10 @@ export function initGlobalBuffList() {
                 ${buff.name}
             </label>
 
-            ${potentialHTML}
-
-            ${moduleHTML}
+            <div class="global-buff-build-row">
+                ${potentialHTML}
+                ${moduleHTML}
+            </div>
         `;
 
 
@@ -145,6 +159,9 @@ export function initGlobalBuffList() {
             item.querySelector(
                 ".global-buff-module-level"
             );
+        const moduleLevelArea = item.querySelector(
+            ".global-buff-module-level-area"
+        );
 
 
         // ホルンカードへ同期
@@ -204,16 +221,12 @@ export function initGlobalBuffList() {
                         "none"
                     ) {
 
-                        moduleLevelSelect
-                            .style
-                            .display = "none";
+                        moduleLevelArea.hidden = true;
 
                     }
                     else {
 
-                        moduleLevelSelect
-                            .style
-                            .display = "";
+                        moduleLevelArea.hidden = false;
 
                     }
 

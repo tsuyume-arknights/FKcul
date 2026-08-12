@@ -35,6 +35,9 @@ export function syncHornDefenderBuff(
         item.querySelector(
             ".global-buff-module-level"
         );
+    const moduleLevelArea = item.querySelector(
+        ".global-buff-module-level-area"
+    );
 
 
     // ホルンがダメ計に入ったらバフON
@@ -48,9 +51,12 @@ export function syncHornDefenderBuff(
 
     // モジュール
     if (moduleSelect) {
+        const hasModuleOption = [...moduleSelect.options]
+            .some(option => option.value === module);
 
-        moduleSelect.value =
-            module || "none";
+        moduleSelect.value = hasModuleOption
+            ? module
+            : "none";
 
     }
 
@@ -63,14 +69,12 @@ export function syncHornDefenderBuff(
             moduleSelect.value === "none"
         ) {
 
-            moduleLevelSelect.style.display =
-                "none";
+            moduleLevelArea.hidden = true;
 
         }
         else {
 
-            moduleLevelSelect.style.display =
-                "";
+            moduleLevelArea.hidden = false;
 
             moduleLevelSelect.value =
                 String(moduleLevel);

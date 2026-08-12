@@ -1,5 +1,6 @@
 export function createWindflitOptions() {
     return `
+        <div class="setting-build-row">
         <label>
             潜在
             <select class="windflit-potential">
@@ -15,13 +16,14 @@ export function createWindflitOptions() {
             </select>
         </label>
         <label class="windflit-module-level-area">
-            モジュールレベル
+            レベル
             <select class="windflit-module-level">
                 <option value="1">Lv1</option>
                 <option value="2">Lv2</option>
                 <option value="3" selected>Lv3</option>
             </select>
         </label>
+        </div>
     `;
 }
 

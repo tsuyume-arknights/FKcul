@@ -21,7 +21,7 @@ export function initInspirationBuffList() {
                 ${operator.name} ${operator.skill.name}
             </div>
 
-            <details class="support-card-details" open>
+            <details class="support-card-details">
                 <summary>設定・計算結果</summary>
                 <div class="support-card-content">
                     <div class="support-operator-settings"></div>

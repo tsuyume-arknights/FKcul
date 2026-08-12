@@ -14,6 +14,7 @@ function createSettingsHTML(operator, availableSelfBuffs) {
     const defaultModuleLevel = moduleLevels.at(-1) ?? 0;
 
     return `
+        <div class="support-build-row">
         <label>
             潜在
             <select class="heidi-potential">
@@ -45,7 +46,7 @@ function createSettingsHTML(operator, availableSelfBuffs) {
             </label>
 
             <label class="heidi-module-level-area">
-                モジュールレベル
+                レベル
                 <select class="heidi-module-level">
                     ${moduleLevels.map(level => `
                         <option
@@ -61,9 +62,10 @@ function createSettingsHTML(operator, availableSelfBuffs) {
                 </select>
             </label>
         ` : ""}
+        </div>
 
         <fieldset class="heidi-conditions">
-            <legend>発動条件</legend>
+            <legend>条件バフ</legend>
 
             <label class="heidi-two-allies-area">
                 <input

@@ -6,6 +6,7 @@ import {
 } from "./updateOperatorCard.js";
 import { syncHornDefenderBuff } from "../globalBuff/updateGlobalBuff.js";
 import {
+    updateOperatorHitOptions,
     updateOperatorSpecialOptions
 } from "./operatorSpecial/index.js";
 import singleBuffs from "../../data/singleBuffs.js";
@@ -43,34 +44,46 @@ export function createOperatorCard(operatorData) {
 
         <div class="skill-name"></div>
 
-        <details class="operator-card-details" open>
+        <details class="operator-card-details">
         <summary>設定・計算結果</summary>
 
         <div class="operator-card-content">
-        <select class="potential" hidden></select>
+        <div class="operator-build-row">
+        <label class="potential-area">
+            潜在
+            <select class="potential" hidden></select>
+        </label>
 
-        <div class="module-area">
+        <label class="module-area">
 
-        <label>モジュール</label>
+        モジュール
         <select class="module"></select>
 
-        </div>
+        </label>
 
-        <div class="module-level-area">
+        <label class="module-level-area">
 
-            <label>レベル</label>
+            レベル
 
             <select class="module-level"></select>
 
+        </label>
+
         </div>
 
-        <div class="hit-count-area">
-            <label>攻撃回数</label>
-            <select class="hit-count"></select>
-        </div>
+        <fieldset class="operator-hit-options-area" hidden>
+            <legend>攻撃ヒット</legend>
+            <div class="hit-count-area">
+                <label>
+                    攻撃回数
+                    <select class="hit-count"></select>
+                </label>
+            </div>
+            <div class="hit-options"></div>
+        </fieldset>
 
         <fieldset class="operator-condition-area" hidden>
-            <legend>発動条件</legend>
+            <legend>条件バフ</legend>
             <div class="special-options"></div>
         </fieldset>
 
@@ -87,9 +100,13 @@ export function createOperatorCard(operatorData) {
     const operatorSelect = card.querySelector(".operator-select");
 
     const specialOptionsArea = card.querySelector(".special-options");
+    const hitOptionsArea = card.querySelector(".hit-options");
     const singleBuffArea = card.querySelector(".single-buff-area");
     const conditionFieldset = card.querySelector(
         ".operator-condition-area"
+    );
+    const hitOptionsFieldset = card.querySelector(
+        ".operator-hit-options-area"
     );
     const buffFieldset = card.querySelector(".operator-buff-area");
 
@@ -124,8 +141,10 @@ export function createOperatorCard(operatorData) {
         moduleLevelArea,
         moduleLevelSelect,
         specialOptionsArea,
+        hitOptionsArea,
         singleBuffArea,
         conditionFieldset,
+        hitOptionsFieldset,
         buffFieldset
     );
 
@@ -156,8 +175,10 @@ function bindCardEvents(
     moduleLevelArea,
     moduleLevelSelect,
     specialOptionsArea,
+    hitOptionsArea,
     singleBuffArea,
     conditionFieldset,
+    hitOptionsFieldset,
     buffFieldset
 ) {
 
@@ -199,6 +220,13 @@ function bindCardEvents(
         hitCountArea.style.display = "";
     }
 
+    function updateHitOptionsVisibility() {
+        const hasHitCount = hitCountArea.style.display !== "none";
+        const hasHitOptions = hitOptionsArea.innerHTML.trim() !== "";
+
+        hitOptionsFieldset.hidden = !hasHitCount && !hasHitOptions;
+    }
+
     function refreshSpecialOptions() {
         updateOperatorSpecialOptions(
             getCurrentOperator(),
@@ -212,6 +240,20 @@ function bindCardEvents(
 
         conditionFieldset.hidden =
             specialOptionsArea.innerHTML.trim() === "";
+    }
+
+    function refreshHitOptions() {
+        updateOperatorHitOptions(
+            getCurrentOperator(),
+            hitOptionsArea,
+            {
+                potential: Number(potentialSelect.value || 1),
+                moduleName: moduleSelect.value,
+                moduleLevel: Number(moduleLevelSelect.value || 0)
+            }
+        );
+
+        updateHitOptionsVisibility();
     }
 
     function refreshSingleBuffs() {
@@ -287,6 +329,7 @@ function bindCardEvents(
         );
 
         refreshSpecialOptions();
+        refreshHitOptions();
         refreshSingleBuffs();
 
         updateOperator(operatorData);
@@ -297,6 +340,7 @@ function bindCardEvents(
     potentialSelect.addEventListener("change", () => {
 
         refreshSpecialOptions();
+        refreshHitOptions();
         syncHornBuff();
 
     });
@@ -313,6 +357,7 @@ function bindCardEvents(
         );
 
         refreshSpecialOptions();
+        refreshHitOptions();
 
         syncHornBuff();
     });
@@ -320,6 +365,7 @@ function bindCardEvents(
     moduleLevelSelect.addEventListener("change", () => {
 
         refreshSpecialOptions();
+        refreshHitOptions();
 
         syncHornBuff();
     });

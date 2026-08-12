@@ -1,1 +1,380 @@
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+body {
+    background: #202020;
+    color: white;
+    font-family: sans-serif;
+}
+
+.calculator {
+    width: min(700px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.global-buff-details,
+.support-operator-details,
+.debuff-details {
+    margin: 20px 0;
+}
+
+.global-buff-details summary,
+.support-operator-details summary,
+.debuff-details summary {
+    cursor: pointer;
+    font-size: 1.17em;
+    font-weight: bold;
+}
+
+#global-buff-list,
+#support-operator-list {
+    margin-top: 12px;
+}
+
+.global-buff-check {
+    width: auto;
+}
+
+.operator-build-row,
+.global-buff-build-row,
+.support-build-row,
+.setting-build-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.operator-build-row > label,
+.global-buff-build-row > label,
+.support-build-row > label,
+.setting-build-row > label {
+    flex: none;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.potential,
+.global-buff-potential,
+.skadi-potential,
+.heidi-potential,
+.suzuran-potential,
+.windflit-potential {
+    flex: none;
+    width: 12em;
+}
+
+.module,
+.global-buff-module,
+.skadi-module,
+.heidi-module,
+.suzuran-module,
+.windflit-module {
+    flex: none;
+    width: 6em;
+}
+
+.module-level,
+.global-buff-module-level,
+.skadi-module-level,
+.heidi-module-level,
+.suzuran-module-level,
+.windflit-module-level {
+    flex: none;
+    width: 6em;
+}
+
+.potential-area:has(.potential[hidden]) {
+    display: none;
+}
+
+@media (max-width: 520px) {
+    .operator-build-row,
+    .global-buff-build-row,
+    .support-build-row,
+    .setting-build-row {
+        flex-wrap: wrap;
+    }
+}
+
+#enemy-debuff-list {
+    margin-top: 12px;
+}
+
+#enemy-settings {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+#enemy-settings label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+#enemy-settings input {
+    width: 6em;
+}
+
+.enemy-debuff-item {
+    margin: 0;
+}
+
+.enemy-debuff-toggle input {
+    width: auto;
+}
+
+.enemy-debuff-options {
+    margin: 8px 0 12px 20px;
+}
+
+.calculation-details,
+#final-enemy-status,
+#result {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #292929;
+}
+
+.calculation-details {
+    line-height: 1.7;
+}
+
+.damage-breakdown {
+    line-height: 1.8;
+}
+
+.support-operator-item {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #d8d8d8;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #3a3a3a;
+}
+
+.support-operator-title {
+    font-weight: bold;
+}
+
+.operator-card-details,
+.support-card-details {
+    margin-top: 12px;
+}
+
+.operator-card-details>summary,
+.support-card-details>summary {
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.operator-card-content,
+.support-card-content {
+    margin-top: 12px;
+}
+
+.operator-condition-area,
+.operator-hit-options-area,
+.operator-buff-area {
+    margin-top: 18px;
+    border: 2px solid #d8d8d8;
+}
+
+.operator-condition-area input[type="checkbox"],
+.operator-hit-options-area input[type="checkbox"] {
+    width: auto;
+}
+
+.hit-count-area label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hit-count-area select {
+    width: auto;
+}
+
+.ulpianus-kill-count {
+    width: 4em;
+}
+
+.special-options label:has(.ulpianus-kill-count) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.single-buff-item input {
+    width: auto;
+}
+
+.lemuen-deployed-20s,
+.lemuen-blast-center,
+.firewatch-talent-target {
+    width: auto;
+}
+
+.support-operator-settings {
+    margin-top: 12px;
+}
+
+.skadi-self-buffs {
+    margin-top: 18px;
+    border: 2px solid #d8d8d8;
+}
+
+.skadi-conditions {
+    margin-top: 18px;
+    border: 2px solid #d8d8d8;
+}
+
+.skadi-conditions input {
+    width: auto;
+}
+
+.heidi-conditions {
+    margin-top: 18px;
+    border: 2px solid #d8d8d8;
+}
+
+.heidi-conditions input {
+    width: auto;
+}
+
+.single-buff-settings {
+    margin: 8px 0 12px 20px;
+    padding: 10px;
+    border-left: 3px solid #777;
+    background: #292929;
+}
+
+.single-buff-options {
+    margin-left: 20px;
+}
+
+.single-buff-count-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.single-buff-count-area .single-buff-count {
+    width: 4em;
+}
+
+
+header {
+    text-align: center;
+}
+
+
+.operators {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.operator-card,
+.enemy,
+.result {
+
+    background: #3a3a3a;
+    border: 2px solid #d8d8d8;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+
+.operator-card {
+
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.operator-select {
+    width: 15em;
+}
+
+
+h2 {
+    margin-top: 0;
+}
+
+.section-divider {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 2px solid #d8d8d8;
+}
+
+.calculate-section {
+    margin-bottom: 0;
+}
+
+
+label {
+
+    display: block;
+    margin: 15px 0;
+
+}
+
+
+select,
+input {
+
+    width: 100%;
+    padding: 5px;
+
+}
+
+
+.damage {
+
+    font-size: 24px;
+    font-weight: bold;
+
+}
+
+
+#final-enemy-status,
+#result {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+#totalDamage {
+
+    font-size: 30px;
+    color: #00ff99;
+
+}

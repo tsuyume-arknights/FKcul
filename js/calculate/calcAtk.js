@@ -177,10 +177,12 @@ export function calculateAttackDetails(
         : inspirationAtk;
 
     const finalAtk = (
-        baseAtk
-        * (1 + atkAdd / 100)
+        (
+            baseAtk
+            * (1 + atkAdd / 100)
+            + appliedInspirationAtk
+        )
         * atkMul
-        + appliedInspirationAtk
     );
 
     return {

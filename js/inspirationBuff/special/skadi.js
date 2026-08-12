@@ -12,6 +12,7 @@ function createSettingsHTML(operator, availableSelfBuffs) {
     const defaultModuleLevel = moduleLevels.at(-1) ?? 0;
 
     return `
+        <div class="support-build-row">
         <label>
             潜在
             <select class="skadi-potential">
@@ -42,7 +43,7 @@ function createSettingsHTML(operator, availableSelfBuffs) {
         </label>
 
         <label class="skadi-module-level-area">
-            モジュールレベル
+            レベル
             <select class="skadi-module-level">
                 ${moduleLevels.map(level => `
                     <option
@@ -57,9 +58,10 @@ function createSettingsHTML(operator, availableSelfBuffs) {
                 `).join("")}
             </select>
         </label>
+        </div>
 
         <fieldset class="skadi-conditions">
-            <legend>発動条件</legend>
+            <legend>条件バフ</legend>
 
             <label>
                 <input

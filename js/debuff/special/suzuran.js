@@ -1,5 +1,6 @@
 export function createSuzuranOptions() {
     return `
+        <div class="setting-build-row">
         <label>
             潜在
             <select class="suzuran-potential">
@@ -15,13 +16,14 @@ export function createSuzuranOptions() {
             </select>
         </label>
         <label class="suzuran-module-level-area">
-            モジュールレベル
+            レベル
             <select class="suzuran-module-level">
                 <option value="1">Lv1</option>
                 <option value="2">Lv2</option>
                 <option value="3" selected>Lv3</option>
             </select>
         </label>
+        </div>
     `;
 }
 

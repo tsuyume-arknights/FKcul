@@ -237,7 +237,7 @@ const operators = [
   },
   // ウルピアヌス
   {
-    name: "ウルピアヌス",
+    name: "ウルピアヌス(通常/真銀斬)",
     id: "ulpianus",
     atk: 1649,
     tags: [
@@ -248,8 +248,14 @@ const operators = [
       name: "S3 拓くべき活路",
       hits: [
         {
+          id: "normal",
           damage_type: "physical",
           multiplier: 160
+        },
+        {
+          id: "silverash_s2",
+          damage_type: "physical",
+          multiplier: 200
         },
       ],
       atk_add: 260,
@@ -465,7 +471,7 @@ const operators = [
   },
   // 司霆レイズ
   {
-    name: "司霆レイズ 未実装",
+    name: "司霆レイズ",
     id: "leizi_the_thunderbringer",
     atk: 390,
     tags: [
@@ -476,8 +482,14 @@ const operators = [
       name: "S1 浩気不滅",
       hits: [
         {
+          id: "normal",
           damage_type: "physical",
           multiplier: 355
+        },
+        {
+          id: "thunder",
+          damage_type: "arts",
+          multiplier: 100
         },
       ],
       atk_add: 0,
@@ -485,8 +497,21 @@ const operators = [
     talents: [
       {
         id: "tal1",
-        name: "素質名",
-        effects: []
+        effects: [
+          {
+            type: "atk_add",
+            value: 200
+          }
+        ]
+      },
+      {
+        id: "tal2",
+        effects: [
+          {
+            type: "atk_mul",
+            value: 107
+          }
+        ]
       }
     ],
     potential: [
@@ -503,7 +528,13 @@ const operators = [
       {
         id: 5,
         note: "素質強化",
-        effects: []
+        effects: [
+          {
+            type: "tal_add",
+            target: "tal2",
+            value: 4
+          }
+        ]
       }
     ],
     modules: {
@@ -522,6 +553,11 @@ const operators = [
               type: "atk_flat",
               value: 35
             },
+            {
+              type: "tal_add",
+              target: "tal2",
+              value: 4
+            },
           ]
         },
         "3": {
@@ -529,6 +565,11 @@ const operators = [
             {
               type: "atk_flat",
               value: 42
+            },
+            {
+              type: "tal_add",
+              target: "tal2",
+              value: 6
             },
           ]
         }
@@ -604,7 +645,7 @@ const operators = [
   },
   // ウィシャデル
   {
-    name: "ウィシャデル 未実装",
+    name: "ウィシャデル",
     id: "wisadel",
     atk: 777,
     tags: [
@@ -616,11 +657,31 @@ const operators = [
       name: "S3 デイブレイクバースト",
       hits: [
         {
+          id: "normal",
           damage_type: "physical",
-          multiplier: 300
+          multiplier: 220
+        },
+        {
+          id: "sub_1",
+          damage_type: "physical",
+          multiplier: 110
+        },
+        {
+          id: "sub_2",
+          damage_type: "physical",
+          multiplier: 110,
+          module: {
+            name: "X",
+            minLevel: 1
+          }
+        },
+        {
+          id: "talent",
+          damage_type: "physical",
+          multiplier: 150
         },
       ],
-      atk_add: 0,
+      atk_add: 180,
     },
     talents: [],
     potential: [
@@ -1246,34 +1307,119 @@ const operators = [
       },
     },
   },
-  // ウァン
+  // ファントム真銀斬
   {
-    name: "ウァン 未実装",
-    id: "wang",
-    atk: 0,
+    name: "ファントム(真銀斬)",
+    id: "Phantom",
+    atk: 648,
     tags: [
-      "ranged",
+      "melee",
       "specialist",
-      "bullet"
     ],
     skill: {
-      name: "S3",
-      hitCount: {
-        min: 1,
-        max: 1,
-        default: 1
-      },
+      name: "S2 血染めの楽章",
       hits: [
         {
-          damage_type: "arts",
-          multiplier: 0
+          damage_type: "physical",
+          multiplier: 380
         },
       ],
-      atk_add: 0,
+      atk_add: 200,
     },
     talents: [],
-    potential: [],
-    modules: {},
+    potential: [
+      {
+        id: 2,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 22,
+          },
+        ]
+      },
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 50
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 62
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 73
+            },
+          ]
+        }
+      },
+      Y: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 40
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 60
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 75
+            },
+          ]
+        }
+      },
+      A: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 37
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 55
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 71
+            },
+          ]
+        }
+      },
+
+    },
   }
 ]
 

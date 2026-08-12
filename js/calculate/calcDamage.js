@@ -2,7 +2,8 @@ import { calculateAttackDetails } from "./calcAtk.js";
 import {
     calculateOperatorDamageSourceDetails,
     calculateOperatorHitMultiplier,
-    calculateOperatorSpecialIgnoreDef
+    calculateOperatorSpecialIgnoreDef,
+    isOperatorHitEnabled
 } from "../operatorManager/operatorSpecial/index.js";
 import {
     calculateInspirationAtks,
@@ -70,12 +71,21 @@ function calculateOperatorDamage(
             return;
         }
 
+        if (!isOperatorHitEnabled(operator, hit, {
+            specialOptions: selected.specialOptions
+        })) {
+            return;
+        }
+
         for (let i = 0; i < selected.hitCount; i++) {
 
             const hitMultiplier = calculateOperatorHitMultiplier(
                 operator,
                 hit,
                 {
+                    potential: selected.potential,
+                    moduleName: selected.module,
+                    moduleLevel: selected.moduleLevel,
                     specialOptions: selected.specialOptions
                 }
             );
