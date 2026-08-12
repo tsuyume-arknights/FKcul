@@ -228,6 +228,17 @@ body {
     white-space: nowrap;
 }
 
+.wang-linked-stone-count {
+    width: 4em;
+}
+
+.wang-linked-stone-count-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
 .single-buff-item input {
     width: auto;
 }

@@ -1420,6 +1420,78 @@ const operators = [
       },
 
     },
+  },
+  // ウァン
+  {
+    name: "ウァン",
+    id: "wang",
+    atk: 669,
+    tags: [
+      "ranged",
+      "specialist",
+      "bullet"
+    ],
+    skill: {
+      name: "S3 天下劫",
+      hits: [
+        {
+          damage_type: "arts",
+          multiplier: 380
+        }
+      ],
+      hitCount: {
+        min: 1,
+        max: 5,
+        default: 2
+      },
+      atk_add: 0
+    },
+    talents: [],
+    potential: [
+      {
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 27
+          }
+        ]
+      },
+      {
+        id: 5,
+        note: "素質強化",
+        effects: []
+      }
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 36
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 50
+            }
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 60
+            }
+          ]
+        }
+      }
+    }
   }
 ]
 

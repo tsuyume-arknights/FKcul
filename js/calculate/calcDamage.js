@@ -1,8 +1,10 @@
 import { calculateAttackDetails } from "./calcAtk.js";
 import {
+    calculateOperatorDamageMultiplier,
     calculateOperatorDamageSourceDetails,
     calculateOperatorHitMultiplier,
     calculateOperatorSpecialIgnoreDef,
+    calculateOperatorSpecialIgnoreRes,
     isOperatorHitEnabled
 } from "../operatorManager/operatorSpecial/index.js";
 import {
@@ -55,6 +57,20 @@ function calculateOperatorDamage(
         selected.module,
         selected.moduleLevel,
         selected.specialOptions
+    );
+    const specialDamageContext = {
+        potential: selected.potential,
+        moduleName: selected.module,
+        moduleLevel: selected.moduleLevel,
+        specialOptions: selected.specialOptions
+    };
+    const ignoreRes = calculateOperatorSpecialIgnoreRes(
+        operator,
+        specialDamageContext
+    );
+    const damageMultiplier = calculateOperatorDamageMultiplier(
+        operator,
+        specialDamageContext
     );
 
     let totalDamage = 0;
@@ -120,7 +136,9 @@ function calculateOperatorDamage(
                     totalDamage += calculateArtsDamage(
                         hitDamage,
                         enemy,
-                        debuffs
+                        debuffs,
+                        ignoreRes,
+                        damageMultiplier
                     );
 
                     break;
@@ -307,13 +325,18 @@ function calculatePhysicalDamage(
 function calculateArtsDamage(
     atk,
     enemy,
-    debuffs
+    debuffs,
+    ignoreRes = 0,
+    damageMultiplier = 1
 ) {
 
     const resReduction = clampPercentage(
         debuffs.resReduction
     );
-    const res = enemy.res * (1 - resReduction / 100);
+    const res = Math.max(
+        enemy.res * (1 - resReduction / 100) - ignoreRes,
+        0
+    );
 
     const damage = Math.max(
         atk * (100 - res) / 100,
@@ -322,6 +345,7 @@ function calculateArtsDamage(
 
     return (
         damage
+        * damageMultiplier
         * getDamageMultiplier(debuffs.fragile)
         * getDamageMultiplier(debuffs.artsDamageIncrease)
     );

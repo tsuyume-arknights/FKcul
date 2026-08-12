@@ -47,6 +47,12 @@ import {
     isLeiziHitEnabled,
     updateLeiziHitOptions
 } from "./leizi.js";
+import {
+    getWangDamageMultiplier,
+    getWangIgnoreRes,
+    getWangOptions,
+    updateWangOptions
+} from "./wang.js";
 
 const specialCalculators = {
     blaze: calculateBlazeEffects,
@@ -81,6 +87,24 @@ export function calculateOperatorSpecialIgnoreDef(
     return calculator
         ? calculator(context)
         : 0;
+}
+
+const specialIgnoreResCalculators = {
+    wang: getWangIgnoreRes
+};
+
+export function calculateOperatorSpecialIgnoreRes(operator, context) {
+    const calculator = specialIgnoreResCalculators[operator.id];
+    return calculator ? calculator(context) : 0;
+}
+
+const specialDamageMultiplierCalculators = {
+    wang: getWangDamageMultiplier
+};
+
+export function calculateOperatorDamageMultiplier(operator, context) {
+    const calculator = specialDamageMultiplierCalculators[operator.id];
+    return calculator ? calculator(context) : 1;
 }
 
 const specialHitMultiplierCalculators = {
@@ -139,7 +163,8 @@ const specialOptionRenderers = {
     firewatch: updateFirewatchOptions,
     lemuen: updateLemuenOptions,
     Phantom: updatePhantomOptions,
-    ulpianus: updateUlpianusOptions
+    ulpianus: updateUlpianusOptions,
+    wang: updateWangOptions
 };
 
 const hitOptionRenderers = {
@@ -157,7 +182,8 @@ const specialOptionGetters = {
     Phantom: getPhantomOptions,
     qiubai: getQiubaiOptions,
     ulpianus: getUlpianusOptions,
-    wisadel: getWisadelOptions
+    wisadel: getWisadelOptions,
+    wang: getWangOptions
 };
 
 export function updateOperatorSpecialOptions(
