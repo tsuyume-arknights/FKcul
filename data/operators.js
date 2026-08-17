@@ -255,7 +255,7 @@ const operators = [
         {
           id: "silverash_s2",
           damage_type: "physical",
-          multiplier: 200
+          multiplier: 380
         },
       ],
       atk_add: 260,
