@@ -7,6 +7,11 @@
     tags: [],
     skill: {
       name: "S3 スキル3",
+      hitCount: {
+        min: 1,
+        max: 1,
+        default: 2
+      },
       hits: [
         {
           damage_type: "physical",
@@ -132,52 +137,45 @@ const operators = [
       }
     },
   },
-  // ホルン
+  // チューバイ
   {
-    name: "ホルン",
-    id: "horn",
-    atk: 1006,
+    name: "チューバイ",
+    id: "qiubai",
+    atk: 768,
     tags: [
       "melee",
-      "defender",
-      "bullet"
+      "guard",
     ],
     skill: {
-      name: "S2 テンペストオーダー",
-      hitCount: {
-        min: 1,
-        max: 5,
-        default: 5
-      },
+      name: "S2 承影",
       hits: [
         {
           damage_type: "physical",
-          multiplier: 240
+          multiplier: 300
         },
         {
           damage_type: "arts",
-          multiplier: 60
+          multiplier: 10,
+          module: {
+            name: "X",
+            minLevel: 1
+          }
         },
       ],
-      atk_add: 0,
+      atk_add: 140,
     },
     talents: [],
     potential: [
-      {
-        id: 3,
-        note: "素質強化",
-        effects: []
-      },
       {
         id: 4,
         note: "攻撃力上昇",
         effects: [
           {
             type: "atk_flat",
-            value: 30,
+            value: 26,
           },
         ]
-      }
+      },
     ],
     modules: {
       X: {
@@ -185,7 +183,7 @@ const operators = [
           effects: [
             {
               type: "atk_flat",
-              value: 65
+              value: 35
             }
           ]
         },
@@ -193,7 +191,7 @@ const operators = [
           effects: [
             {
               type: "atk_flat",
-              value: 85
+              value: 48
             },
           ]
         },
@@ -201,38 +199,11 @@ const operators = [
           effects: [
             {
               type: "atk_flat",
-              value: 100
+              value: 55
             },
           ]
         }
-
       },
-      Y: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 92
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 108
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 120
-            },
-          ]
-        }
-      }
     },
   },
   // ウルピアヌス
@@ -307,162 +278,6 @@ const operators = [
             {
               type: "atk_flat",
               value: 120
-            },
-          ]
-        }
-      },
-    },
-  },
-  // チューバイ
-  {
-    name: "チューバイ",
-    id: "qiubai",
-    atk: 768,
-    tags: [
-      "melee",
-      "guard",
-    ],
-    skill: {
-      name: "S2 承影",
-      hits: [
-        {
-          damage_type: "physical",
-          multiplier: 300
-        },
-        {
-          damage_type: "arts",
-          multiplier: 10,
-          module: {
-            name: "X",
-            minLevel: 1
-          }
-        },
-      ],
-      atk_add: 140,
-    },
-    talents: [],
-    potential: [
-      {
-        id: 4,
-        note: "攻撃力上昇",
-        effects: [
-          {
-            type: "atk_flat",
-            value: 26,
-          },
-        ]
-      },
-    ],
-    modules: {
-      X: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 35
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 48
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 55
-            },
-          ]
-        }
-      },
-    },
-  },
-  // 赤刃明霄チェン
-  {
-    name: "赤刃明霄チェン",
-    id: "chen_the_dawnstreak",
-    atk: 770,
-    tags: [
-      "melee",
-      "guard",
-    ],
-    skill: {
-      name: "S3 赤霄・天喟",
-      hitCount: {
-        min: 1,
-        max: 2,
-        default: 1
-      },
-      hits: [
-        {
-          damage_type: "weakness",
-          multiplier: 580
-        },
-      ],
-      atk_add: 0,
-    },
-    talents: [
-      {
-        id: "tal1",
-        effects: [
-          {
-            type: "atk_add",
-            value: 13
-          }
-        ]
-      }
-    ],
-    potential: [
-      {
-        id: 4,
-        note: "攻撃力上昇",
-        effects: [
-          {
-            type: "atk_flat",
-            value: 28,
-          },
-        ]
-      },
-      {
-        id: 5,
-        note: "素質強化",
-        effects: [
-          {
-            type: "tal_add",
-            target: "tal1",
-            value: 3
-          }
-        ]
-      },
-    ],
-    modules: {
-      X: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 30
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 48
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 60
             },
           ]
         }
@@ -574,6 +389,196 @@ const operators = [
           ]
         }
       },
+    },
+  },
+  // 赤刃明霄チェン
+  {
+    name: "赤刃明霄チェン",
+    id: "chen_the_dawnstreak",
+    atk: 770,
+    tags: [
+      "melee",
+      "guard",
+    ],
+    skill: {
+      name: "S3 赤霄・天喟",
+      hitCount: {
+        min: 1,
+        max: 2,
+        default: 1
+      },
+      hits: [
+        {
+          damage_type: "weakness",
+          multiplier: 580
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [
+      {
+        id: "tal1",
+        effects: [
+          {
+            type: "atk_add",
+            value: 13
+          }
+        ]
+      }
+    ],
+    potential: [
+      {
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 28,
+          },
+        ]
+      },
+      {
+        id: 5,
+        note: "素質強化",
+        effects: [
+          {
+            type: "tal_add",
+            target: "tal1",
+            value: 3
+          }
+        ]
+      },
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 30
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 48
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 60
+            },
+          ]
+        }
+      },
+    },
+  },
+  // ホルン
+  {
+    name: "ホルン",
+    id: "horn",
+    atk: 1006,
+    tags: [
+      "melee",
+      "defender",
+      "bullet"
+    ],
+    skill: {
+      name: "S2 テンペストオーダー",
+      hitCount: {
+        min: 1,
+        max: 5,
+        default: 5
+      },
+      hits: [
+        {
+          damage_type: "physical",
+          multiplier: 240
+        },
+        {
+          damage_type: "arts",
+          multiplier: 60
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [],
+    potential: [
+      {
+        id: 3,
+        note: "素質強化",
+        effects: []
+      },
+      {
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 30,
+          },
+        ]
+      }
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 65
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 85
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 100
+            },
+          ]
+        }
+
+      },
+      Y: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 92
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 108
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 120
+            },
+          ]
+        }
+      }
     },
   },
   // 滌火ジェシカ
@@ -873,6 +878,93 @@ const operators = [
       },
     },
   },
+  // ロゴス
+  {
+    name: "ロゴス",
+    id: "logos",
+    atk: 761,
+    tags: [
+      "ranged",
+      "caster",
+    ],
+    skill: {
+      name: "S1 歿亡",
+      hits: [
+        {
+          special: "logos_s1_execute",
+          multiplier: 150
+        },
+      ],
+      atk_add: 100,
+    },
+    talents: [],
+    potential: [
+      {
+        id: 4,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 27,
+          },
+        ]
+      },
+    ],
+    modules: {
+      Y: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 35
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 50
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 60
+            },
+          ]
+        }
+      },
+      D: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 36
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 54
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 67
+            },
+          ]
+        }
+      },
+    },
+  },
   // マルシル
   {
     name: "マルシル",
@@ -1016,93 +1108,6 @@ const operators = [
       },
     },
   },
-  // ロゴス
-  {
-    name: "ロゴス",
-    id: "logos",
-    atk: 761,
-    tags: [
-      "ranged",
-      "caster",
-    ],
-    skill: {
-      name: "S1 歿亡",
-      hits: [
-        {
-          special: "logos_s1_execute",
-          multiplier: 150
-        },
-      ],
-      atk_add: 100,
-    },
-    talents: [],
-    potential: [
-      {
-        id: 4,
-        note: "攻撃力上昇",
-        effects: [
-          {
-            type: "atk_flat",
-            value: 27,
-          },
-        ]
-      },
-    ],
-    modules: {
-      Y: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 35
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 50
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 60
-            },
-          ]
-        }
-      },
-      D: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 36
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 54
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 67
-            },
-          ]
-        }
-      },
-    },
-  },
   // レイディアン
   {
     name: "レイディアン",
@@ -1200,107 +1205,6 @@ const operators = [
             {
               type: "atk_flat",
               value: 65
-            },
-          ]
-        }
-      },
-    },
-  },
-  // キリンRヤトウ
-  {
-    name: "キリンRヤトウ",
-    id: "kirin_r_yato",
-    atk: 655,
-    tags: [
-      "melee",
-      "specialist",
-    ],
-    skill: {
-      name: "S3 空中回転乱舞",
-      hitCount: {
-        min: 1,
-        max: 2,
-        default: 1
-      },
-      hits: [
-        {
-          damage_type: "physical",
-          multiplier: 300
-        },
-        {
-          damage_type: "arts",
-          multiplier: 20
-        },
-      ],
-      atk_add: 0,
-    },
-    talents: [
-      {
-        id: "tal1",
-        effects: [
-          {
-            type: "atk_add",
-            value: 13
-          }
-        ]
-      }
-    ],
-    potential: [
-      {
-        id: 3,
-        note: "攻撃力上昇",
-        effects: [
-          {
-            type: "atk_flat",
-            value: 22,
-          },
-        ]
-      },
-      {
-        id: 5,
-        note: "素質強化",
-        effects: [
-          {
-            type: "tal_add",
-            target: "tal1",
-            value: 3
-          }
-        ]
-      },
-    ],
-    modules: {
-      X: {
-        "1": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 36
-            }
-          ]
-        },
-        "2": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 43
-            },
-            {
-              type: "tal_add",
-              target: "tal1",
-              value: 4
-            },
-          ]
-        },
-        "3": {
-          effects: [
-            {
-              type: "atk_flat",
-              value: 48
-            },
-            {
-              type: "tal_add",
-              target: "tal1",
-              value: 7
             },
           ]
         }
@@ -1419,6 +1323,107 @@ const operators = [
         }
       },
 
+    },
+  },
+  // キリンRヤトウ
+  {
+    name: "キリンRヤトウ",
+    id: "kirin_r_yato",
+    atk: 655,
+    tags: [
+      "melee",
+      "specialist",
+    ],
+    skill: {
+      name: "S3 空中回転乱舞",
+      hitCount: {
+        min: 1,
+        max: 2,
+        default: 1
+      },
+      hits: [
+        {
+          damage_type: "physical",
+          multiplier: 300
+        },
+        {
+          damage_type: "arts",
+          multiplier: 20
+        },
+      ],
+      atk_add: 0,
+    },
+    talents: [
+      {
+        id: "tal1",
+        effects: [
+          {
+            type: "atk_add",
+            value: 13
+          }
+        ]
+      }
+    ],
+    potential: [
+      {
+        id: 3,
+        note: "攻撃力上昇",
+        effects: [
+          {
+            type: "atk_flat",
+            value: 22,
+          },
+        ]
+      },
+      {
+        id: 5,
+        note: "素質強化",
+        effects: [
+          {
+            type: "tal_add",
+            target: "tal1",
+            value: 3
+          }
+        ]
+      },
+    ],
+    modules: {
+      X: {
+        "1": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 36
+            }
+          ]
+        },
+        "2": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 43
+            },
+            {
+              type: "tal_add",
+              target: "tal1",
+              value: 4
+            },
+          ]
+        },
+        "3": {
+          effects: [
+            {
+              type: "atk_flat",
+              value: 48
+            },
+            {
+              type: "tal_add",
+              target: "tal1",
+              value: 7
+            },
+          ]
+        }
+      },
     },
   },
   // ウァン
